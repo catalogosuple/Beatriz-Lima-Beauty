@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .header {
+            background-color: #1f1f1f;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff69b4;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1f1f1f 0%, #2c3e50 100%);
+            background-image: url("https://i.imgur.com/7nHAazH.jpeg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Exemplo de fonte estilosa */
+            font-size: 3rem; /* Tamanho do texto */
+            color: #ff69b4; /* Cor do texto */
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 10px #ff69b4; /* Sombra de texto para simular iluminação */
+            margin-bottom: 1em;
+        }
+
+        .hero h1::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo para destacar o texto */
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transform: skew(-15deg); /* Transformação para dar um efeito de inclinação */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-bottom: 10em;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: #ff69b4;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .btn-banner {
+            padding: 0.75rem 1.5rem;
+            background-color: #ff69b4;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: -11rem;
+            display: inline-block;
+        }
+
+        .services, .about, .contact {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ff69b4;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-item {
+            background-color: #1f1f1f;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-item i {
+            font-size: 2rem;
+            color: #ff69b4;
+        }
+
+        .grid-item h3 {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .grid-item p {
+            color: #bdc3c7;
+        }
+
+        .about p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #bdc3c7;
+        }
+
+        .grid-item img {
+            width: 100%; /* Ajuste o tamanho conforme necessário */
+            height: 250px; /* Ajuste o tamanho conforme necessário */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        #icone {
+            width: 64px; /* Ajuste o tamanho conforme necessário */
+            height: 64px; /* Ajuste o tamanho conforme necessário */
+            margin-bottom: -25px;
+            margin-top: -5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea, form select {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #1f1f1f;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            
+        }
+
+        #month, #day {
+            width: 49%;
+           
+           
+        }
+
+
+        #contact button {
+            padding: 1rem;       
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;        
+            overflow: hidden;
+            height: 3rem;
+            background-size: 300% 300%;
+            backdrop-filter: blur(1rem);
+            border-radius: 5px;
+            transition: 0.5s;
+            animation: gradient_301 5s ease infinite;
+            border: double 4px transparent;
+            background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+        #container-stars {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transition: 0.5s;
+            backdrop-filter: blur(1rem);
+            border-radius: 5px;
+          }
+          
+          strong {
+            z-index: 2;
+            font-family: 'Avalors Personal Use';
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: #FFFFFF;
+            text-shadow: 0 0 4px white;
+          }
+          
+          #glow {
+            position: absolute;
+            display: flex;
+            width: 12rem;
+          }
+          
+          .circle {
+            width: 100%;
+            height: 30px;
+            filter: blur(2rem);
+            animation: pulse_3011 4s infinite;
+            z-index: -1;
+          }
+          
+          .circle:nth-of-type(1) {
+            background: rgba(254, 83, 186, 0.636);
+          }
+          
+          .circle:nth-of-type(2) {
+            background: rgba(142, 81, 234, 0.704);
+          }
+          
+          .btn:hover #container-stars {
+            z-index: 1;
+            background-color: #212121;
+          }
+          
+          .btn:hover {
+            transform: scale(1.1)
+          }
+          
+          .btn:active {
+            border: double 4px #FE53BB;
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            animation: none;
+          }
+          
+          .btn:active .circle {
+            background: #FE53BB;
+          }
+          
+          #stars {
+            position: relative;
+            background: transparent;
+            width: 200rem;
+            height: 200rem;
+          }
+          
+          #stars::after {
+            content: "";
+            position: absolute;
+            top: -10rem;
+            left: -100rem;
+            width: 100%;
+            height: 100%;
+            animation: animStarRotate 90s linear infinite;
+          }
+          
+          #stars::after {
+            background-image: radial-gradient(#ffffff 1px, transparent 1%);
+            background-size: 50px 50px;
+          }
+          
+          #stars::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 170%;
+            height: 500%;
+            animation: animStar 60s linear infinite;
+          }
+          
+          #stars::before {
+            background-image: radial-gradient(#ffffff 1px, transparent 1%);
+            background-size: 50px 50px;
+            opacity: 0.5;
+          }
+          
+          @keyframes animStar {
+            from {
+              transform: translateY(0);
+            }
+          
+            to {
+              transform: translateY(-135rem);
+            }
+          }
+          
+          @keyframes animStarRotate {
+            from {
+              transform: rotate(360deg);
+            }
+          
+            to {
+              transform: rotate(0);
+            }
+          }
+          
+          @keyframes gradient_301 {
+            0% {
+              background-position: 0% 50%;
+            }
+          
+            50% {
+              background-position: 100% 50%;
+            }
+          
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+          
+          @keyframes pulse_3011 {
+            0% {
+              transform: scale(0.75);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+            }
+          
+            70% {
+              transform: scale(1);
+              box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            }
+          
+            100% {
+              transform: scale(0.75);
+              box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+          }
+
+               /* Styles for the modal */
+        .modal {
+                display: none;
+                position: fixed;
+                z-index: 1001;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.7);
+        }
+    
+        .modal-content {
+                background-color: #1f1f1f;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 600px;
+                text-align: center;
+                border-radius: 10px;
+        }
+
+        .modal img {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                max-width: 75%; /* Garantir que a imagem não exceda a largura do modal */
+        }
+    
+        .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+        }
+    
+        .close:hover,
+        .close:focus {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+        }
+
+        .about {
+            text-align: center;
+            align-items: center;
+            position: relative;
+       
+        }
+        
+        #map {
+            width: 50%;
+            height: 40%;
+            align-items: center;
+        }
+        
+        .mb-4 {
+            color:#bdc3c7;
+        }
+
+
+          /* Estilos botão WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 45px;
+            right: 35px;
+            z-index: 999;
+        }
+
+        .whatsapp-btn img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn img:hover {
+            transform: scale(1.1);
+        }
+
+        .tooltip {
+            visibility: visible;
+            font-size: 12px;
+            width: 110px;
+            background-color: #4b52589d;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -55px;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-btn:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            background-color: #4b5258;
+        }
+
+
+        .cta-instagram {
+            text-align: center;
+            margin-top: 40px; /* Espaçamento entre o grid de serviços e a chamada de ação */
+            padding: 20px;
+            background-color: #1f1f1f; /* Cor de fundo */
+            border-radius: 10px;
+        }
+        
+        .cta-instagram p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .btn-instagram {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e83e8c; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-instagram:hover {
+            background-color: #c7257b; /* Cor de fundo do botão ao passar o mouse */
+        }
+        
+
+
+        .footer {
+            background-color: #1f1f1f;
+            padding: 1rem 0;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            margin: 0 10px;
+            color: #FFFFFF;
+            font-size: 28px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #FF69B4;
+        }
+
+        @media (min-width: 769px) {
+            .hero {
+                background-image: url('https://i.imgur.com/7sRtt0E.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        
+
+        @media (max-width: 768px) {
+
+            .hero {
+                background-image: url('https://i.imgur.com/T7YMLO1.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            
+        }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #1f1f1f;
+                width: 100%;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .whatsapp-btn {
+                bottom: 52px;
+            }
+
+            .whatsapp-btn img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s;
+            }
+            #map {
+                width: 100%;
+                height: 50%;
+            }
+
+            .modal-content {
+                padding: 10px;
+                width: 70%;
+                max-width: 700px;
+            }
+
+            .modal img {
+                margin-top: 5px;
+                margin-bottom: 10px;
+                max-width: 100%; /* Garantir que a imagem não exceda a largura do modal */
+        }
+
+            #time {
+                width: 100%;
+            }
+           
+        }
