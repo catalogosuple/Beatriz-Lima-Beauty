@@ -14,10 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <style >
-        
-
-    </style>
+    <script src="script.js"></script>
     <script>
        
             $(document).ready(function(){
@@ -45,14 +42,33 @@
     </script>
 </head>
 <body>
-    <header>
-        
-    </header>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#hero" class="logo">Beatriz Lima Beauty</a>
 
+            <!-- botão hambúrguer -->
+            <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            </button>
+
+            <!-- menu -->
+            <nav id="navMenu" class="nav-menu" aria-hidden="true">
+            <ul>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#catalog">Catálogo</a></li>
+                <li><a href="#contact">Agendar</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://www.instagram.com/beatrizl_imabeauty" target="_blank">Instagram</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header >
     <section class="hero">
         <div class="container">
-            <h1>Beatriz Lima Beauty</h1>
-            <p>Seu espaço de beleza e bem-estar.</p>
+            
+            
             <a href="https://api.whatsapp.com/send?phone=5585985934633" class="btn-banner" target="_blank">Agendar Serviço</a>
         </div>
     </section>
@@ -154,78 +170,79 @@
     </section>
 
     <section class="contact" id="contact">
-        <div class="container">
-            <h2>Agendar</h2>
-            <form id="appointmentForm">
-                <input type="text" id="name" name="name" placeholder="Seu Nome" required>
-                <select id="service" name="service" class="form-control" aria-label="Serviço" required>
-                    <option value="">Selecione o Serviço</option>
-                    <option value="Design de Sobrancelhas">Design de Sobrancelhas</option>
-                    <option value="Depilação a Cera">Depilação a Cera</option>
-                    <option value="Extensão de Cílios">Extensão de Cílios</option>
-                </select>
-                
-                <div >
-                    <input type="number" id="day" name="day" class="form-control" placeholder="Dia" min="1" max="31" required>
-                    <select id="month" name="month" class="form-control" aria-label="Mês" required>
-                        <option value="">Mês</option>
-                        <option value="01">Janeiro</option>
-                        <option value="02">Fevereiro</option>
-                        <option value="03">Março</option>
-                        <option value="04">Abril</option>
-                        <option value="05">Maio</option>
-                        <option value="06">Junho</option>
-                        <option value="07">Julho</option>
-                        <option value="08">Agosto</option>
-                        <option value="09">Setembro</option>
-                        <option value="10">Outubro</option>
-                        <option value="11">Novembro</option>
-                        <option value="12">Dezembro</option>
-                    </select>
+    <div class="container">
+        <h2>Agendar</h2>
+        <form id="appointmentForm">
+            <!-- Nome -->
+            <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+
+            <!-- Serviço -->
+            <select id="service" name="service" required>
+                <option value="">Selecione o Serviço</option>
+                <option value="Design de Sobrancelhas">Design de Sobrancelhas</option>
+                <option value="Depilação a Cera">Depilação a Cera</option>
+                <option value="Extensão de Cílios">Extensão de Cílios</option>
+            </select>
+
+            <!-- Data e Hora -->
+            
+            <input type="datetime-local" id="datetime" name="datetime" placeholder="Seu Nome" required>
+
+            <!-- Observação -->
+            <textarea id="observation" name="observation" placeholder="Observação (opcional)"></textarea>
+
+            <!-- Botão -->
+            <button class="btn" type="button" onclick="sendWhatsAppMessage()">
+                <strong>ENVIAR</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
                 </div>
-                
-                <input type="time" id="time" name="time" class="form-control" required>
-                <textarea id="observation" name="observation" placeholder="Observação (opcional)"></textarea>
-                <button class="btn" type="button" onclick="sendWhatsAppMessage()">
-                    <strong>ENVIAR</strong>
-                    <div id="container-stars">
-                        <div id="stars"></div>
-                    </div>
-                    <div id="glow">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                    </div>
-                </button>
-            </form>
-        </div>
-    </section>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </form>
+    </div>
+</section>
+
     
     
     <script>
         function sendWhatsAppMessage() {
-            // Pega os valores do formulário
-            var name = document.getElementById('name').value;
-            var service = document.getElementById('service').value;
-            var day = document.getElementById('day').value;
-            var month = document.getElementById('month').value;
-            var time = document.getElementById('time').value;
-            var observation = document.getElementById('observation').value;
-    
-            // Formata a data para dd/mm
-            var formattedDate = `${day}/${month}`;
-    
-            // Formata a mensagem para o WhatsApp
-            var message = `Olá, meu nome é ${name}. Gostaria de agendar um serviço de ${service} para o dia ${formattedDate} às ${time}, está disponível? \n Observação: ${observation}`;
-    
-            // Substitui espaços por %20 para URL
-            message = encodeURIComponent(message);
-    
-            // Número de WhatsApp e mensagem
-            var whatsappLink = `https://wa.me/5585985934633?text=${message}`;
-    
-            // Abre o WhatsApp com a mensagem pré-preenchida
-            window.open(whatsappLink, '_blank');
-        }
+                // Pega os valores do formulário
+                var name = document.getElementById('name').value;
+                var service = document.getElementById('service').value;
+                var datetime = document.getElementById('datetime').value; // YYYY-MM-DDTHH:MM
+                var observation = document.getElementById('observation').value;
+
+                if (!datetime) {
+                    alert("Por favor, selecione data e hora.");
+                    return;
+                }
+
+                // Formata a data e hora para dd/mm/yyyy às HH:MM
+                var dateObj = new Date(datetime);
+                var day = ("0" + dateObj.getDate()).slice(-2);
+                var month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+                var year = dateObj.getFullYear();
+                var hours = ("0" + dateObj.getHours()).slice(-2);
+                var minutes = ("0" + dateObj.getMinutes()).slice(-2);
+                var formattedDateTime = `${day}/${month}/${year} às ${hours}:${minutes}`;
+
+                // Formata a mensagem para o WhatsApp
+                var message = `Olá, meu nome é ${name}. Gostaria de agendar um serviço de ${service} para o dia ${formattedDateTime}, está disponível?\nObservação: ${observation}`;
+
+                // Substitui espaços por %20 para URL
+                message = encodeURIComponent(message);
+
+                // Número de WhatsApp e mensagem
+                var whatsappLink = `https://wa.me/5585985934633?text=${message}`;
+
+                // Abre o WhatsApp com a mensagem pré-preenchida
+                window.open(whatsappLink, '_blank');
+            }
+
     </script>
     
     
@@ -259,7 +276,7 @@ s0.parentNode.insertBefore(s1,s0);
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Beatriz Lima Beauty. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Beatriz Lima Beauty. Todos os direitos reservados.</p>
             <p>R. Ilha Brava, 145M - Itaperi, Fortaleza - CE | (85) 985934633 | beatrizlimaestetica@gmail.com</p>
             <div class="social-icons">
                 <a href="https://api.whatsapp.com/send?phone=5585985934633" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -307,12 +324,52 @@ s0.parentNode.insertBefore(s1,s0);
 
     <!-- Script para menu hamburguer-->
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
 
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        if (!navToggle || !navMenu) return; // evita erro se elementos não existirem
+
+        function setMenuState(open) {
+            if (open) {
+            navMenu.classList.add('open');
+            navToggle.classList.add('open');
+            navToggle.setAttribute('aria-expanded', 'true');
+            navMenu.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('nav-open');
+            } else {
+            navMenu.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('nav-open');
+            }
+        }
+
+        // toggle ao clicar no botão
+        navToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setMenuState(!navMenu.classList.contains('open'));
         });
+
+        // fechar ao clicar fora do menu
+        document.addEventListener('click', function (e) {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('open')) {
+            setMenuState(false);
+            }
+        });
+
+        // fechar com ESC
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('open')) setMenuState(false);
+        });
+
+        // fechar ao clicar em um link (útil em mobile)
+        navMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => setMenuState(false));
+        });
+        });
+
     </script>
 </body>
 </html>
