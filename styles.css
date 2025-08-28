@@ -51,7 +51,7 @@
         }
 
         .header-inner .logo img {
-            max-height: 260px;   /* altura máxima dentro do header */
+            max-height: 55px;   /* altura máxima dentro do header */
             width: auto;        /* mantém proporção */
             object-fit: contain; /* evita distorção */
             vertical-align: middle; 
@@ -153,6 +153,13 @@
         body.nav-open {
             overflow: hidden;
         }
+        }
+
+        .header-inner .logo img {
+        margin-left: -35px; /* ajusta a logo para esquerda */
+        /* ou alternativamente:
+        transform: translateX(-10px);
+        */
         }
 
 
